@@ -1,51 +1,45 @@
 /*
-Developer Name  : Shelake Kalyani Rajendra
-Program Name    : Write a program for multilevel inheritance such that Country is inherited from Continent.
-State is inherited from Country. Display the place, State, Country and Continent.
-Developed Date  : 29-12-2022 
-Technology Used : JAVA 
+12): - 
+Write a program for multilevel inheritance such that country is inherited from continent. 
+State is inherited from country. 
+Display the place, state, country and continent.
 */
 
-class Continent
+class continent
 {
-	String continent_name;
-	
-	Continent(String continent_name)
+	String cont_name;
+	continent(String cont)
 	{
-		this.continent_name = continent_name;
+		this.cont_name=cont;
 	}
 }
 
-class Country extends Continent
+class country extends continent
 {
 	String country_name;
-	
-	Country(String continent_name,String country_name)
+	country(String cont,String coun)
 	{
-		super(continent_name);
-		this.country_name = country_name;
+		super(cont);
+		this.country_name=coun;
 	}
 }
 
-class State extends Country
+class state extends country
 {
-	String State_name;
-	
-	State(String continent_name,String country_name,String State_name)
+	String state_name;
+	state(String cont,String coun,String state)
 	{
-		super(continent_name,country_name);
-		this.State_name = State_name;
+		super(cont,coun);
+		this.state_name=state;
 	}
 }
-
-class District extends State
+class district extends state
 {
-	String Dist_name;
-	
-	District(String continent_name,String country_name,String State_name,String Dist_name)
+	String district_name;
+	district(String cont,String coun,String state,String district)
 	{
-	    super(continent_name,country_name,State_name);
-		this.Dist_name = Dist_name;
+		super(cont,coun,state);
+		this.district_name=district;
 	}
 }
 
@@ -53,11 +47,13 @@ class Main
 {
 	public static void main(String args[])
 	{
-		District obj = new District("Ashia","India","Maharashtra","Ahmednagar");
+		district obj = new district("Asia","India","Maharashtra","Ahmednager");
+
+		System.out.println("Contient: "+obj.cont_name);
+		System.out.println("Country: "+obj.country_name);
+		System.out.println("State: "+obj.state_name);
+		System.out.println("District: "+obj.district_name);
 		
-		System.out.println("Continent Name = "+obj.continent_name);
-		System.out.println("Country Name = "+obj.country_name);
-		System.out.println("State Name = "+obj.State_name);
-		System.out.println("District Name = "+obj.Dist_name);
 	}
+	
 }
